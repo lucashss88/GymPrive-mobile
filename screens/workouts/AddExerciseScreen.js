@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { ExercisesContext } from '../context/ExercisesContext';
+import BackButton from "../BackButton";
 
 const AddExerciseScreen = ({ navigation }) => {
     const [name, setName] = useState('');
@@ -18,6 +19,7 @@ const AddExerciseScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <BackButton />
             <Text style={styles.title}>Adicionar Exercício</Text>
             <TextInput
                 style={styles.input}

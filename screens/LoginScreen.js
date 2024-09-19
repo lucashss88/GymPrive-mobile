@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import {View, Text, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import { AuthContext } from './context/AuthContext';
 import {useNavigation} from "@react-navigation/native";
+import BackButton from "./BackButton";
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -21,6 +22,7 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            {/*<BackButton />*/}
             <Text>Login</Text>
             <TextInput
                 style={styles.input}
@@ -36,7 +38,11 @@ const LoginScreen = () => {
                 onChangeText={setPassword}
                 secureTextEntry
             />
-            <Button title="Login" onPress={handleLogin} />
+            <TouchableOpacity
+                style={styles.button}
+                onPress={handleLogin}>
+                <Text style={styles.buttonText}>Login</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -51,6 +57,17 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 8,
         marginBottom: 16,
+    },
+    button: {
+        backgroundColor: '#000',
+        padding: 10,
+        borderRadius: 4,
+        marginVertical: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
 });
 

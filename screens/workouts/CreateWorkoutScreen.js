@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { ExercisesContext } from '../context/ExercisesContext';
 import axios from "axios";
+import BackButton from "../BackButton";
 
 const CreateWorkoutScreen = ({ navigation }) => {
     const [startDate, setStartDate] = useState('');
@@ -38,6 +39,7 @@ const CreateWorkoutScreen = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <BackButton />
             <Text style={styles.title}>Criar Treino</Text>
             <TextInput
                 style={styles.input}

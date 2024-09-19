@@ -1,6 +1,6 @@
 // RegisterScreen.js
 import React, {useContext, useState} from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import {View, Text, TextInput, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import { AuthContext } from './context/AuthContext';
 import {useNavigation} from "@react-navigation/native";
 
@@ -69,7 +69,11 @@ const RegisterScreen = () => {
           onChangeText={setAge}
           keyboardType="numeric"
         />
-        <Button title="Registrar" onPress={handleRegister} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleRegister}>
+            <Text style={styles.buttonText}>Registrar</Text>
+        </TouchableOpacity>
       </View>
     );
 };
@@ -91,6 +95,17 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginBottom: 10,
         paddingHorizontal: 8,
+    },
+    button: {
+        backgroundColor: '#000',
+        padding: 10,
+        borderRadius: 4,
+        marginVertical: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
 });
 

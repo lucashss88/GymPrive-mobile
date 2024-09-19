@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { AuthContext } from './context/AuthContext';
 
 const HomeScreen = ({ navigation }) => {
@@ -21,26 +21,33 @@ const HomeScreen = ({ navigation }) => {
           <>
             <Text style={styles.welcomeText}>Bem-vindo, {user.email}!</Text>
 
-            <Button
-              title="Criar Treino"
+            <TouchableOpacity
+              style={styles.button}
               onPress={() => navigation.navigate('CreateWorkout')}
-            />
+            >
+              <Text style={styles.buttonText}>Criar Treino</Text>
+            </TouchableOpacity>
 
-            <Button
-              title="Listar Treinos"
+            <TouchableOpacity
+              style={styles.button}
               onPress={() => navigation.navigate('WorkoutList')}
-            />
+            >
+              <Text style={styles.buttonText}>Listar Treinos</Text>
+            </TouchableOpacity>
 
-            <Button
-              title="Editar Perfil"
+            <TouchableOpacity
+              style={styles.button}
               onPress={() => navigation.navigate('EditProfile')}
-            />
+            >
+              <Text style={styles.buttonText}>Editar Perfil</Text>
+            </TouchableOpacity>
 
-            <Button
-              title="Logout"
-              onPress={handleLogout}
-              color="red"
-            />
+              <TouchableOpacity
+                  style={styles.buttonLogout}
+                  onPress={(handleLogout)}
+              >
+                  <Text style={styles.buttonText}>Logout</Text>
+              </TouchableOpacity>
           </>
         ) : (
           <Text style={styles.welcomeText}>Carregando...</Text>
@@ -60,6 +67,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginBottom: 20,
     },
+    button: {
+        backgroundColor: '#0066cc',
+        padding: 10,
+        borderRadius: 4,
+        marginVertical: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    buttonLogout: {
+       backgroundColor: '#ff0000',
+       padding: 10,
+       borderRadius: 4,
+       marginVertical: 5,
+    }
 });
 
 export default HomeScreen;
